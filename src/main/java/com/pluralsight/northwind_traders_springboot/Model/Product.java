@@ -7,15 +7,28 @@ import jakarta.persistence.*;
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-
-    private int productId;
+    @Column(name = "`ProductID`")
+    private Long productId;
+    @Column(name = "`ProductName`")
     private String name;
+    @Column(name = "`CategoryID`")
     private String category;
+    @Column(name = "`UnitPrice`")
     private double price;
 
-    public int getProductId() { return productId; }
+    public Product() {
+    }
 
-    public void setProductId(int productId) { this.productId = productId; }
+    public Product(Long productId, String name, String category, double price) {
+        this.productId = productId;
+        this.name = name;
+        this.category = category;
+        this.price = price;
+    }
+
+    public long getProductId() { return productId; }
+
+    public void setProductId(Long productId) { this.productId = productId; }
 
     public String getName() { return name; }
 

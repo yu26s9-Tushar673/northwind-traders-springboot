@@ -9,5 +9,4 @@ public class NorthwindTradersSpringbootApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(NorthwindTradersSpringbootApplication.class, args);
 	}
-
 }

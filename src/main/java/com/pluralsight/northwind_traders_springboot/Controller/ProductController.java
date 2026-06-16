@@ -2,6 +2,7 @@ package com.pluralsight.northwind_traders_springboot.Controller;
 
 import com.pluralsight.northwind_traders_springboot.Model.Product;
 import com.pluralsight.northwind_traders_springboot.Service.ProductService;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -30,9 +31,9 @@ public class ProductController {
 
     @PostMapping
     public Product createProduct(@RequestBody Product product) {
-        return productService.createProduct(product);
+        Product created = productService.createProduct(product);
+        return ResponseEntity.status(HttpStatus.CREATED).body(created).getBody();
     }
-
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteProduct(@PathVariable Long id) {
         productService.deleteProduct(id);
